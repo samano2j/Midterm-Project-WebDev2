@@ -5,16 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="./css/main.css" />
 </head>
-<body  class="w-100">
+<body>
 
     <section id="checkout-list" class="checkout-list">
         <div class="checkout-container">
             <div class="checkout-icon">
-                <i id="cartOut" class="bi bi-cart-fill"></i>
+                <i id="cartOut" class="bi bi-cart-fill">(0)</i>
                 <i id="closeCheckout" class="bi bi-x"></i>
             </div>
             <div class="checkout-items">
@@ -23,7 +22,7 @@
             </div>
             <div class="checkout-closure">
                 <p>Subtotal</p>
-                <p id="subtotal">$100</p>
+                <p id="subtotal">$0</p>
                 <button id="clearBtn">Clear</button>
                 <button id="checkoutBtn">Checkout</button>
             </div>
@@ -32,25 +31,31 @@
 
     <main>
         <header>
-            <nav class="navbar navbar-expand-sm">
+            <nav>
                 <img src="/images/logo.png" alt="logo">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
+                <ul>
+                    <li>
                     <i class="bi bi-person-fill nav-link"></i>
                     </li>
-                    <li class="nav-item">
+                    <li>
                     <i class="bi bi-search nav-link"></i>
                     </li>
-                    <li class="nav-item">
-                    <i id="cartNav" class="bi bi-cart-fill nav-link"></i>
+                    <li>
+                    <i id="cartNav" class="bi bi-cart-fill nav-link">(0)</i>
                     </li>
                 </ul>
             </nav>
         </header>
         <section class="headline">
+            <!-- <i class="bi bi-arrow-left-circle-fill"></i>
+            <i class="bi bi-arrow-right-circle-fill"></i> -->
+            <i id="bg1" class="bi bi-circle-fill"></i>
+            <i id="bg2" class="bi bi-circle-fill"></i>
+            <i id="bg3" class="bi bi-circle-fill"></i>
+            <i id="bg4" class="bi bi-circle-fill"></i>
         </section>
     </main>
-    
+
     <section class="gallery">
         <div class="figure">
             <ul id="listImg">
@@ -59,7 +64,22 @@
     </section>
 
     <footer>
+        <div class="about">
+            <h3>About Us</h3>
+            <p>We spread Anime Culture around the world</p>
+        </div>
 
+        <div class="social">
+        <img src="/images/icon/twit.png" alt="twitter">
+        <img src="/images/icon/fb.png" alt="facebook">
+        <img src="/images/icon/insta.png" alt="instagram">
+        <img src="/images/icon/yt.png" alt="youtube">
+        </div>
+
+        <div class="copyright">
+            <img src="/images/icon/copy.png" alt="copyright">
+            <p>AniStore All rights reserved</p>
+        </div>
     </footer>
 
     <section id="confirmModal" class="modal">
@@ -71,7 +91,6 @@
     </section>
 
     <!-- links for external script -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
     <script src="script.js"></script>

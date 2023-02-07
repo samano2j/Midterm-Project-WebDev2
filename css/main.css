@@ -26,40 +26,87 @@ i {
 }
 
 main {
-  background-image: url(/images/bg-main.png);
-  background-size: cover;
-  background-position: 20%;
-  height: 70vh;
+  height: 80vh;
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 main header {
   background-color: #ffce00;
   width: 100%;
 }
+main .headline {
+  background-image: url(/images/background/bg1.png);
+  background-size: cover;
+  background-position: 20%;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  gap: 20px;
+  padding: 20px;
+  margin-top: 10vh;
+}
+main .headline #bg1 {
+  color: #ffce00;
+}
+main .headline i:hover {
+  color: #ffce00;
+}
 main nav {
+  position: fixed;
   font-size: 1.5em;
+  z-index: 1;
   width: 100%;
+  background-color: #ffce00;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  padding: 0 20px;
+  overflow: hidden;
+  transition: height 0.5s;
+}
+main nav ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  text-decoration: none;
+  justify-content: space-around;
+  width: 15%;
 }
 main nav img {
   height: 50px;
   width: 200px;
 }
 main nav .nav-link {
+  font-size: 1.5rem;
   color: white;
+}
+main nav i:hover {
+  color: black;
 }
 
 .gallery {
   background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .gallery .figure {
   padding: 10px;
-  width: 100%;
+  width: 80%;
 }
 .gallery .figure ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   list-style: none;
   text-decoration: none;
-  gap: 10px;
+  gap: 20px;
   padding: 20px;
 }
 .gallery .figure ul li {
@@ -105,7 +152,7 @@ main nav .nav-link {
 
 .modal {
   position: fixed;
-  z-index: 1;
+  z-index: 5;
   padding: 20px;
   left: 0;
   top: 0;
@@ -133,20 +180,22 @@ main nav .nav-link {
 }
 
 .checkout-list {
-  position: absolute;
-  z-index: 1;
+  position: fixed;
+  z-index: 5;
   background-color: rgba(0, 0, 0, 0.9);
   font-size: 1.5em;
   height: 100vh;
   width: 100%;
+  overflow: hidden;
   display: none;
 }
 .checkout-list .checkout-container {
   background-color: white;
   position: absolute;
   right: 0;
-  z-index: 2;
-  width: 40%;
+  z-index: 5;
+  width: 0%;
+  overflow: hidden;
 }
 .checkout-list .checkout-container i {
   font-size: 1.5em;
@@ -158,12 +207,18 @@ main nav .nav-link {
   background-color: #ffce00;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 5px 10px;
+  height: 10vh;
 }
 .checkout-list .checkout-container .checkout-items {
   padding-top: 50px;
   height: calc(100vh - 130px);
   overflow-y: auto;
+  background-color: white;
+  position: fixed;
+  top: 10vh;
+  width: 40%;
 }
 .checkout-list .checkout-container .checkout-items ul {
   list-style: none;
@@ -172,7 +227,7 @@ main nav .nav-link {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px;
+  padding: 0 40px 100px 40px;
   gap: 30px;
 }
 .checkout-list .checkout-container .checkout-items ul li {
@@ -201,6 +256,44 @@ main nav .nav-link {
 }
 .checkout-list .checkout-closure #subtotal {
   justify-self: end;
+}
+
+footer {
+  height: 30vh;
+  background-color: #ffce00;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+footer .about p {
+  margin-top: 10px;
+  font-size: 1.5rem;
+}
+footer img {
+  height: auto;
+  width: 30px;
+}
+footer .social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 5px;
+}
+footer .copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+footer .copyright p {
+  padding: 0;
+  margin: 0;
+}
+footer .copyright img {
+  width: 15px;
 }
 
 /*# sourceMappingURL=main.css.map */

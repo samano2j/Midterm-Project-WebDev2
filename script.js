@@ -1,5 +1,5 @@
-window.onload = function(){ 
-    let url = "https://gist.githubusercontent.com/samano2j/6d7a63d7a04cde3f5b6fa7c38718d25d/raw/495a3c78843c94ba9f0d5e7c86baf4dc4276ccfb/figures.json"
+window.onload = function(){
+    let url = "https://gist.githubusercontent.com/samano2j/6d7a63d7a04cde3f5b6fa7c38718d25d/raw/b959d35adf4a1bb9927408be48a4d986b58d22e8/figures.json" 
     const listImg = document.querySelector("#listImg")
     let imgName = [];
     let imgPrice = [];
@@ -73,12 +73,23 @@ window.onload = function(){
         if(e.target.id == 'cartNav') {
             $('.checkout-list').css({"display":"block"});
             $('body').css({"overflow":"hidden"})
+            $('.checkout-container').animate({width:"+=40%"},300);
+
         }
     })
 
     $('#closeCheckout').click(function(e) {
-        $('.checkout-list').css({"display":"none"});
-        $('body').css({"overflow":"scroll"})
+        // $('.checkout-container').css({"width":"0%"})
+        $('.checkout-container').animate({width:"-=40%"});
+
+        setTimeout(() => {
+            $('.checkout-list').css({"display":"none"},300);
+            $('body').css({"overflow":"scroll"})
+        }, "300")
+
+        // $('.checkout-list').css({"display":"none"});
+        // $('body').css({"overflow":"scroll"})
+
     }) 
 
     const checkoutList = document.querySelector("#checkout-items-list")
@@ -170,4 +181,52 @@ window.onload = function(){
         $('#cartNav').text(`(${itemsCart})`)
         $('#cartOut').text(`(${itemsCart})`)
     })
+
+    $('#bg1').click(function(e) {
+        $('.headline').css({"background-image":"url(/images/background/bg1.png)"})
+        $('#bg1').css({"color":"#ffce00"})
+        $('#bg2').css({"color":"white"})
+        $('#bg3').css({"color":"white"})
+        $('#bg4').css({"color":"white"})
+    })
+
+    $('#bg2').click(function(e) {
+        $('.headline').css({"background-image":"url(/images/background/bg2.png)"})
+        $('#bg2').css({"color":"#ffce00"})
+        $('#bg1').css({"color":"white"})
+        $('#bg3').css({"color":"white"})
+        $('#bg4').css({"color":"white"})
+    })
+
+    $('#bg3').click(function(e) {
+        $('.headline').css({"background-image":"url(/images/background/bg3.png)"})
+        $('#bg3').css({"color":"#ffce00"})
+        $('#bg2').css({"color":"white"})
+        $('#bg1').css({"color":"white"})
+        $('#bg4').css({"color":"white"})
+    })
+
+    $('#bg4').click(function(e) {
+        $('.headline').css({"background-image":"url(/images/background/bg4.png)"})
+        $('#bg4').css({"color":"#ffce00"})
+        $('#bg2').css({"color":"white"})
+        $('#bg3').css({"color":"white"})
+        $('#bg1').css({"color":"white"})
+    })
+
+    var prevScrollpos = window.pageYOffset;
+    $(window).scroll(function() {
+        var currentScrollPos = window.pageYOffset;
+        console.log(currentScrollPos)
+        console.log(prevScrollpos)
+        if (prevScrollpos > currentScrollPos) {
+            $('header nav').css({"height":"10vh"})
+        } 
+        else {
+            $('header nav').css({"height":"0"})
+        }
+
+        prevScrollpos = currentScrollPos;
+    })
+
 };

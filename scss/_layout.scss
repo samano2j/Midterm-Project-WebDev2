@@ -2,10 +2,12 @@ i {
     color: white;
 }
 main {
-    background-image: url(/images/bg-main.png);
-    background-size: cover;
-    background-position: 20%;
-    height: 70vh;
+    height: 80vh;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     header {
         background-color: #ffce00;
@@ -13,10 +15,53 @@ main {
 
     }
 
+    .headline {
+        background-image: url(/images/background/bg1.png);
+        background-size: cover;
+        background-position: 20%;
+        width: 80%;
+        height: 100%;
+        display: flex;
+        justify-content: end;
+        align-items: end;
+        gap: 20px;
+        padding: 20px;
+        margin-top:10vh;
+
+        #bg1 {
+            color: #ffce00;
+        }
+
+        i:hover {
+            color: #ffce00;
+        }
+
+    }
+
 
     nav {
+        position: fixed;
         font-size: 1.5em;
+        z-index: 1;
         width: 100%;
+        background-color: #ffce00;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 10vh;
+        padding: 0 20px;
+        overflow: hidden;
+        transition: height 0.5s;
+
+
+        ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            text-decoration: none;
+            justify-content: space-around;
+            width: 15%;
+        }
 
         img {
             height: 50px;
@@ -24,23 +69,34 @@ main {
         }
 
         .nav-link{
+            font-size: 1.5rem;
             color: white;
         }
+
+        i:hover {
+            color: black;
+        }
+        
     }
 }
 
 .gallery {
     background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     .figure {
         padding: 10px;
-        width: 100%;
+        width: 80%;
         
         ul {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             list-style: none;
             text-decoration: none;
-            gap: 10px;
+            gap: 20px;
             padding: 20px;
 
             li {
@@ -98,7 +154,7 @@ main {
 
 .modal {
     position: fixed; 
-    z-index: 1; 
+    z-index: 5; 
     padding: 20px;
     left: 0;
     top: 0;
@@ -130,21 +186,23 @@ main {
 }
 
 .checkout-list {
-    position: absolute;
-    z-index: 1;
+    position: fixed;
+    z-index: 5;
     background-color: rgba(0,0,0,0.9); 
     font-size: 1.5em;
     height: 100vh;
     width: 100%;
-
+    overflow: hidden;
+    
 
     .checkout-container {
         background-color: white; 
         position: absolute;
         right: 0;
-        z-index: 2;
-        width: 40%;
-        
+        z-index: 5;
+        width: 0%;
+        overflow: hidden;
+
         i {
             font-size: 1.5em;
             color: black;
@@ -156,14 +214,20 @@ main {
             background-color: #ffce00;
             display: flex;
             justify-content: space-between;
+            align-items: center;
             padding: 5px 10px;
+            height: 10vh;
         }
     
         .checkout-items {
             padding-top: 50px;
             height: calc(100vh - 130px);
             overflow-y: auto;
-            
+            background-color: white;
+            position: fixed;
+            top: 10vh;
+            width: 40%;
+
             ul {
                 list-style: none;
                 text-decoration: none;
@@ -171,7 +235,7 @@ main {
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                padding: 40px;
+                padding: 0 40px 100px 40px;
                 gap: 30px;
         
                 li {
@@ -212,4 +276,49 @@ main {
     }
 
     display: none;
+}
+
+footer {
+    height: 30vh;
+    background-color: #ffce00;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .about p {
+        margin-top: 10px;
+        font-size: 1.5rem;
+    }
+
+    img {
+        height: auto;
+        width: 30px;
+    }
+
+    .social {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        padding: 5px;
+    }
+
+    .copyright {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        p {
+            padding: 0;
+            margin: 0;
+        }
+
+        img {
+            width: 15px;
+        }
+    }
+
 }

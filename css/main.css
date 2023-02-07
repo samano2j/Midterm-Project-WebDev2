@@ -21,4 +21,186 @@ img, picture, svg, video {
   max-width: 100%;
 }
 
+i {
+  color: white;
+}
+
+main {
+  background-image: url(/images/bg-main.png);
+  background-size: cover;
+  background-position: 20%;
+  height: 70vh;
+}
+main header {
+  background-color: #ffce00;
+  width: 100%;
+}
+main nav {
+  font-size: 1.5em;
+  width: 100%;
+}
+main nav img {
+  height: 50px;
+  width: 200px;
+}
+main nav .nav-link {
+  color: white;
+}
+
+.gallery {
+  background-color: black;
+}
+.gallery .figure {
+  padding: 10px;
+  width: 100%;
+}
+.gallery .figure ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  list-style: none;
+  text-decoration: none;
+  gap: 10px;
+  padding: 20px;
+}
+.gallery .figure ul li {
+  position: relative;
+  height: 350px;
+}
+.gallery .figure ul li img {
+  max-height: 100%;
+  min-width: 100%;
+  object-fit: contain;
+}
+.gallery .figure ul .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 0%;
+  transition: 0.5s ease;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gallery .figure ul .text {
+  font-size: 1.5em;
+  color: white;
+  text-align: center;
+}
+.gallery .figure ul li:hover .overlay {
+  height: 25%;
+}
+
+.closetest {
+  position: absolute;
+  top: -15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  padding: 20px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 30%;
+  grid-template-rows: 1fr 1fr 1fr;
+  padding: 2.5em;
+  gap: 50px;
+  font-size: 3em;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+.modal img {
+  background-color: rgba(0, 0, 0, 0);
+  max-height: 100%;
+  min-width: 100%;
+  object-fit: contain;
+  grid-row: 1/4;
+}
+
+.checkout-list {
+  position: absolute;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.9);
+  font-size: 1.5em;
+  height: 100vh;
+  width: 100%;
+  display: none;
+}
+.checkout-list .checkout-container {
+  background-color: white;
+  position: absolute;
+  right: 0;
+  z-index: 2;
+  width: 40%;
+}
+.checkout-list .checkout-container i {
+  font-size: 1.5em;
+  color: black;
+}
+.checkout-list .checkout-container .checkout-icon {
+  position: fixed;
+  width: 40%;
+  background-color: #ffce00;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+}
+.checkout-list .checkout-container .checkout-items {
+  padding-top: 50px;
+  height: calc(100vh - 130px);
+  overflow-y: auto;
+}
+.checkout-list .checkout-container .checkout-items ul {
+  list-style: none;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  gap: 30px;
+}
+.checkout-list .checkout-container .checkout-items ul li {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  text-align: center;
+  height: 150px;
+}
+.checkout-list .checkout-container .checkout-items ul li img {
+  max-height: 100%;
+  min-width: 100%;
+  object-fit: contain;
+  grid-row: 1/3;
+}
+.checkout-list .checkout-closure {
+  position: fixed;
+  width: 40%;
+  bottom: 0;
+  background-color: #ffce00;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 30px;
+  gap: 10px;
+}
+.checkout-list .checkout-closure #subtotal {
+  justify-self: end;
+}
+
 /*# sourceMappingURL=main.css.map */

@@ -1,7 +1,7 @@
 window.onload = function(){
 
     let url = "https://gist.githubusercontent.com/samano2j/6d7a63d7a04cde3f5b6fa7c38718d25d/raw/f7c6ca94d832e67cdd4942a58ee335579d1d9698/figures.json"
-
+    
     let imgName = [];
     let imgPrice = [];
     let subTotal = 0;
@@ -42,8 +42,16 @@ window.onload = function(){
 
     //Show Modal
     $('#listImg').click(function(e){
+        let w = window.innerWidth;
+
         if($(e.target).is('img')) {
-            $('.modal').css({"display":"grid"})
+            if(w <= 576) {
+                $('.modal').css({"display":"flex"})
+            }
+            else {
+                $('.modal').css({"display":"grid"})
+            }
+           
             let imgSrc = $(e.target).attr('src')
             $('#modal-img').attr('src',`${imgSrc}`)
 
@@ -56,7 +64,12 @@ window.onload = function(){
 
         if($(e.target).is('div')) {
             let imgSrc = $(e.target).parent().prev().attr('src')
-            $('.modal').css({"display":"grid"})
+            if(w <= 576) {
+                $('.modal').css({"display":"flex"})
+            }
+            else {
+                $('.modal').css({"display":"grid"})
+            }
             $('#modal-img').attr('src',`${imgSrc}`)
 
             let num = $(e.target).parent().prev().attr('id')
@@ -69,21 +82,40 @@ window.onload = function(){
 
     //Show Checkout List
     $('header nav').click(function(e) { 
-        if(e.target.id == 'cartNav') {
-            $('.checkout-list').css({"display":"block"});
-            $('body').css({"overflow":"hidden"})
-            $('.checkout-container').animate({width:"+=40%"},300);
+        let w = window.innerWidth;
 
+        if(e.target.id == 'cartNav') {
+            if(w <= 576) {
+                $('.checkout-list').css({"display":"block"});
+                $('body').css({"overflow":"hidden"})
+                $('.checkout-container').animate({width:"+=100%"},300);
+            }
+            else {
+                $('.checkout-list').css({"display":"block"});
+                $('body').css({"overflow":"hidden"})
+                $('.checkout-container').animate({width:"+=40%"},300);
+            }
         }
     })
 
     //Close Checkout List
     $('#closeCheckout').click(function(e) {
-        $('.checkout-container').animate({width:"-=40%"});
-        setTimeout(() => {
-            $('.checkout-list').css({"display":"none"},300);
-            $('body').css({"overflow-y":"scroll"})
+        let w = window.innerWidth;
+
+        if(w <= 576) {
+            $('.checkout-container').animate({width:"-=100%"});
+            setTimeout(() => {
+                $('.checkout-list').css({"display":"none"},300);
+                $('body').css({"overflow-y":"scroll"})
         }, "300")
+        }
+        else {
+            $('.checkout-container').animate({width:"-=40%"});
+            setTimeout(() => {
+                $('.checkout-list').css({"display":"none"},300);
+                $('body').css({"overflow-y":"scroll"})
+        }, "300")
+        }
 
     }) 
 

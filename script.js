@@ -1,11 +1,15 @@
 window.onload = function(){
+
     let url = "https://gist.githubusercontent.com/samano2j/6d7a63d7a04cde3f5b6fa7c38718d25d/raw/b959d35adf4a1bb9927408be48a4d986b58d22e8/figures.json" 
-    const listImg = document.querySelector("#listImg")
+
     let imgName = [];
     let imgPrice = [];
     let subTotal = 0;
     let itemsCart = 0;
 
+    fetchPosts();
+
+    //Get Images
     async function sendHttpRequest(method, url){
         const { data } = await axios(url, { method })
         return data
@@ -22,32 +26,26 @@ window.onload = function(){
                 <div class="text">${image['name']}<br>${image['price']}</div>
                 </div>
                 `
-
                 imgName.push(image['name'])
                 imgPrice.push(image['price'])
 
-                listImg.appendChild(newImg)
+                $('#listImg').append(newImg)
             }
         }
     }
+    
+    //Close Modal
+    $(".closeModal").click(function() {
+        $('.modal').css({"display":"none"})
+        $('body').css({"overflow-y":"scroll"})
+    })
 
-    fetchPosts();
-
-    var modal = document.getElementById("confirmModal");
-    var modalImg = document.getElementById("modal-img");
-
-
-    var test = document.querySelector(".closetest");
-    test.addEventListener('click', function(e) {
-          modal.style.display = "none";
-          $('body').css({"overflow":"scroll"})
-    }) 
-
-
+    //Show Modal
     $('#listImg').click(function(e){
         if($(e.target).is('img')) {
             $('.modal').css({"display":"grid"})
-            modalImg.src = e.target.src;
+            let imgSrc = $(e.target).attr('src')
+            $('#modal-img').attr('src',`${imgSrc}`)
 
             let num = e.target.id;
             $('#nameModal').text(imgName[num.replace(/\D/g, '') - 1]);
@@ -59,7 +57,7 @@ window.onload = function(){
         if($(e.target).is('div')) {
             let imgSrc = $(e.target).parent().prev().attr('src')
             $('.modal').css({"display":"grid"})
-            modalImg.src = imgSrc;
+            $('#modal-img').attr('src',`${imgSrc}`)
 
             let num = $(e.target).parent().prev().attr('id')
             $('#nameModal').text(imgName[num.replace(/\D/g, '') - 1]);
@@ -69,6 +67,7 @@ window.onload = function(){
         }
     })
 
+    //Show Checkout List
     $('header nav').click(function(e) { 
         if(e.target.id == 'cartNav') {
             $('.checkout-list').css({"display":"block"});
@@ -78,22 +77,17 @@ window.onload = function(){
         }
     })
 
+    //Close Checkout List
     $('#closeCheckout').click(function(e) {
-        // $('.checkout-container').css({"width":"0%"})
         $('.checkout-container').animate({width:"-=40%"});
-
         setTimeout(() => {
             $('.checkout-list').css({"display":"none"},300);
-            $('body').css({"overflow":"scroll"})
+            $('body').css({"overflow-y":"scroll"})
         }, "300")
-
-        // $('.checkout-list').css({"display":"none"});
-        // $('body').css({"overflow":"scroll"})
 
     }) 
 
-    const checkoutList = document.querySelector("#checkout-items-list")
-
+    //Add Item to Cart
     $('#addCart').click(function(e) {
         let nameImg = $(e.target).prev().prev()
         let id = 0
@@ -103,7 +97,7 @@ window.onload = function(){
             }
         })
 
-        let listItem = $(checkoutList).children()
+        let listItem = $("#checkout-items-list").children()
         let match = false
 
         listItem.map((key, value) => {
@@ -132,11 +126,11 @@ window.onload = function(){
             addItem.innerHTML = `
                 <img src="/images/figures/figure${id + 1}.png">
                 <p id="nameCheckOut">${imgName[id]}</p>
-                <i class="bi bi-trash-fill"></i>
+                <i id="trash" class="bi bi-trash-fill"></i>
                 <p id="multipleItem">Quantity: 1</p>
                 <p id="priceCheckOut">${imgPrice[id]}</p>
                 `
-            checkoutList.appendChild(addItem)
+            $("#checkout-items-list").append(addItem)
         }
 
         if(subTotal == 0) {
@@ -155,9 +149,10 @@ window.onload = function(){
         $('#cartOut').text(`(${itemsCart})`)
 
         $('#confirmModal').css({"display":"none"})
-        $('body').css({"overflow":"scroll"})
+        $('body').css({"overflow-y":"scroll"})
     })
 
+    //Delete an Item from Checkout
     $('#checkout-items-list').click(function(e) {
         if(e.target.classList[1] === 'bi-trash-fill'){
             let price = $(e.target).next().next().text()
@@ -173,6 +168,7 @@ window.onload = function(){
         }
     })
 
+    //Clear all Items from Checkout
     $('#clearBtn').click(function(e) {
         $('#checkout-items-list').children().remove()
         subTotal = 0
@@ -182,43 +178,53 @@ window.onload = function(){
         $('#cartOut').text(`(${itemsCart})`)
     })
 
+    //Switch Hero Image
     $('#bg1').click(function(e) {
         $('.headline').css({"background-image":"url(/images/background/bg1.png)"})
+        $('.bi-circle-fill').css({"color":"white"})
         $('#bg1').css({"color":"#ffce00"})
-        $('#bg2').css({"color":"white"})
-        $('#bg3').css({"color":"white"})
-        $('#bg4').css({"color":"white"})
     })
 
     $('#bg2').click(function(e) {
         $('.headline').css({"background-image":"url(/images/background/bg2.png)"})
-        $('#bg2').css({"color":"#ffce00"})
+        $('.bi-circle-fill').css({"color":"white"})
         $('#bg1').css({"color":"white"})
-        $('#bg3').css({"color":"white"})
-        $('#bg4').css({"color":"white"})
+        $('#bg2').css({"color":"#ffce00"})
     })
 
     $('#bg3').click(function(e) {
         $('.headline').css({"background-image":"url(/images/background/bg3.png)"})
+        $('.bi-circle-fill').css({"color":"white"})
         $('#bg3').css({"color":"#ffce00"})
-        $('#bg2').css({"color":"white"})
-        $('#bg1').css({"color":"white"})
-        $('#bg4').css({"color":"white"})
     })
 
     $('#bg4').click(function(e) {
         $('.headline').css({"background-image":"url(/images/background/bg4.png)"})
+        $('.bi-circle-fill').css({"color":"white"})
         $('#bg4').css({"color":"#ffce00"})
-        $('#bg2').css({"color":"white"})
-        $('#bg3').css({"color":"white"})
-        $('#bg1').css({"color":"white"})
     })
 
-    var prevScrollpos = window.pageYOffset;
+    setInterval(function () {
+        let currBG = $('.headline').css("background-image")
+        let numBG = parseInt(currBG.replace(/\D/g, '').at(-1))
+
+        if(numBG == 4) {
+            numBG = 1
+        }
+        else {
+            numBG++
+        }
+
+        $('.headline').css({"background-image":`url(/images/background/bg${numBG}.png)`})
+        $('.bi-circle-fill').css({"color":"white"})
+        $(`#bg${numBG}`).css({"color":"#ffce00"})
+
+    }, 5000);
+
+    //Show/Hide Navbar when Scrolling
+    let prevScrollpos = window.pageYOffset;
     $(window).scroll(function() {
-        var currentScrollPos = window.pageYOffset;
-        console.log(currentScrollPos)
-        console.log(prevScrollpos)
+        let currentScrollPos = window.pageYOffset;
         if (prevScrollpos > currentScrollPos) {
             $('header nav').css({"height":"10vh"})
         } 

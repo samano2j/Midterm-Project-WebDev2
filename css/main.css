@@ -21,8 +21,14 @@ img, picture, svg, video {
   max-width: 100%;
 }
 
-i {
-  color: white;
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+h3 {
+  font-weight: 700;
 }
 
 main {
@@ -53,9 +59,6 @@ main .headline {
 main .headline #bg1 {
   color: #ffce00;
 }
-main .headline i:hover {
-  color: #ffce00;
-}
 main nav {
   position: fixed;
   font-size: 1.5em;
@@ -83,10 +86,7 @@ main nav img {
   width: 200px;
 }
 main nav .nav-link {
-  font-size: 1.5rem;
-  color: white;
-}
-main nav i:hover {
+  font-size: 2rem;
   color: black;
 }
 
@@ -112,6 +112,7 @@ main nav i:hover {
 .gallery .figure ul li {
   position: relative;
   height: 350px;
+  cursor: pointer;
 }
 .gallery .figure ul li img {
   max-height: 100%;
@@ -141,13 +142,17 @@ main nav i:hover {
   height: 25%;
 }
 
-.closetest {
+.closeModal {
   position: absolute;
-  top: -15px;
-  right: 35px;
+  top: -10px;
+  right: 200px;
   color: #f1f1f1;
   font-size: 5rem;
   font-weight: bold;
+}
+
+.closeModal:hover {
+  color: #ffce00;
 }
 
 .modal {
@@ -198,8 +203,11 @@ main nav i:hover {
   overflow: hidden;
 }
 .checkout-list .checkout-container i {
-  font-size: 1.5em;
+  font-size: 2em;
   color: black;
+}
+.checkout-list .checkout-container i:hover {
+  color: white;
 }
 .checkout-list .checkout-container .checkout-icon {
   position: fixed;
@@ -212,7 +220,7 @@ main nav i:hover {
   height: 10vh;
 }
 .checkout-list .checkout-container .checkout-items {
-  padding-top: 50px;
+  padding-top: 40px;
   height: calc(100vh - 130px);
   overflow-y: auto;
   background-color: white;
@@ -227,7 +235,7 @@ main nav i:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 40px 100px 40px;
+  padding: 0 0px 120px 60px;
   gap: 30px;
 }
 .checkout-list .checkout-container .checkout-items ul li {
@@ -267,6 +275,9 @@ footer {
   flex-direction: column;
   justify-content: space-between;
 }
+footer h3 {
+  font-size: 2rem;
+}
 footer .about p {
   margin-top: 10px;
   font-size: 1.5rem;
@@ -294,6 +305,44 @@ footer .copyright p {
 }
 footer .copyright img {
   width: 15px;
+}
+
+button {
+  font-weight: 700;
+  background: linear-gradient(to right, rgb(208, 92, 9), orange);
+  color: white;
+  padding: 10px;
+}
+
+button:hover {
+  background: white;
+  color: #ffce00;
+  cursor: pointer;
+}
+
+.headline i {
+  color: white;
+}
+
+.headline i:hover {
+  color: #ffce00;
+}
+
+i:hover {
+  cursor: pointer;
+}
+
+#trash:hover {
+  color: #ffce00;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+#cartOut:hover {
+  cursor: auto;
+  color: black;
 }
 
 /*# sourceMappingURL=main.css.map */

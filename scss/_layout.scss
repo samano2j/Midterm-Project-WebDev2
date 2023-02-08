@@ -1,6 +1,4 @@
-i {
-    color: white;
-}
+
 main {
     height: 80vh;
     background-color: rgb(0, 0, 0);
@@ -12,7 +10,6 @@ main {
     header {
         background-color: #ffce00;
         width: 100%;
-
     }
 
     .headline {
@@ -32,12 +29,7 @@ main {
             color: #ffce00;
         }
 
-        i:hover {
-            color: #ffce00;
-        }
-
     }
-
 
     nav {
         position: fixed;
@@ -69,11 +61,7 @@ main {
         }
 
         .nav-link{
-            font-size: 1.5rem;
-            color: white;
-        }
-
-        i:hover {
+            font-size: 2rem;
             color: black;
         }
         
@@ -102,6 +90,7 @@ main {
             li {
                 position: relative;
                 height: 350px;
+                cursor: pointer;
                 
                 img {
                     max-height: 100%;
@@ -136,20 +125,21 @@ main {
             li:hover .overlay {
                 height: 25%;
             }
-
         }
-
-
     }
 }
 
-.closetest {
+.closeModal {
     position: absolute;
-    top: -15px;
-    right: 35px;
+    top: -10px;
+    right: 200px;
     color: #f1f1f1;
     font-size: 5rem;
     font-weight: bold;
+}
+
+.closeModal:hover {
+    color: #ffce00;
 }
 
 .modal {
@@ -194,7 +184,6 @@ main {
     width: 100%;
     overflow: hidden;
     
-
     .checkout-container {
         background-color: white; 
         position: absolute;
@@ -204,8 +193,12 @@ main {
         overflow: hidden;
 
         i {
-            font-size: 1.5em;
+            font-size: 2em;
             color: black;
+        }
+
+        i:hover {
+            color: white;
         }
     
         .checkout-icon {
@@ -220,7 +213,7 @@ main {
         }
     
         .checkout-items {
-            padding-top: 50px;
+            padding-top: 40px;
             height: calc(100vh - 130px);
             overflow-y: auto;
             background-color: white;
@@ -235,7 +228,7 @@ main {
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                padding: 0 40px 100px 40px;
+                padding: 0 0px 120px 60px;
                 gap: 30px;
         
                 li {
@@ -286,6 +279,10 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    h3 {
+        font-size: 2rem;
+    }
 
     .about p {
         margin-top: 10px;

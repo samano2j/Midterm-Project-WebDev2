@@ -1,0 +1,37 @@
+button {
+    font-weight: 700;
+    background: linear-gradient(to right, rgb(208, 92, 9), orange);
+    color: white;
+    padding: 10px;
+}
+
+button:hover {
+    background: white;
+    color: #ffce00;
+    cursor: pointer;
+}
+
+.headline i {
+    color: white;
+}
+
+.headline i:hover {
+    color: #ffce00;
+}
+
+i:hover {
+    cursor: pointer;
+}
+
+#trash:hover {
+    color:#ffce00;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+#cartOut:hover {
+    cursor: auto;
+    color: black;
+}

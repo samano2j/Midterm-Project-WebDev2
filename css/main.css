@@ -102,17 +102,19 @@ main nav .nav-link {
   width: 80%;
 }
 .gallery .figure ul {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
   list-style: none;
   text-decoration: none;
-  gap: 20px;
-  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 30px;
 }
 .gallery .figure ul li {
   position: relative;
   height: 350px;
   cursor: pointer;
+  margin-top: 20px;
+  flex-grow: 1;
 }
 .gallery .figure ul li img {
   max-height: 100%;

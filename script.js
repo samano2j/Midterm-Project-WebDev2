@@ -1,6 +1,6 @@
 window.onload = function(){
 
-    let url = "https://gist.githubusercontent.com/samano2j/6d7a63d7a04cde3f5b6fa7c38718d25d/raw/b959d35adf4a1bb9927408be48a4d986b58d22e8/figures.json" 
+    let url = "https://gist.githubusercontent.com/samano2j/6d7a63d7a04cde3f5b6fa7c38718d25d/raw/f7c6ca94d832e67cdd4942a58ee335579d1d9698/figures.json"
 
     let imgName = [];
     let imgPrice = [];
@@ -219,7 +219,7 @@ window.onload = function(){
         $('.bi-circle-fill').css({"color":"white"})
         $(`#bg${numBG}`).css({"color":"#ffce00"})
 
-    }, 5000);
+    }, 3000);
 
     //Show/Hide Navbar when Scrolling
     let prevScrollpos = window.pageYOffset;

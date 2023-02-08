@@ -80,17 +80,20 @@ main {
         width: 80%;
         
         ul {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
             list-style: none;
             text-decoration: none;
-            gap: 20px;
-            padding: 20px;
+
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            padding: 30px;
 
             li {
                 position: relative;
                 height: 350px;
                 cursor: pointer;
+                margin-top: 20px;
+                flex-grow: 1;
                 
                 img {
                     max-height: 100%;
@@ -98,7 +101,6 @@ main {
                     object-fit: contain;
                 }
             }
-
 
             .overlay {
                 position: absolute;
@@ -113,7 +115,6 @@ main {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-
             }
 
             .text {

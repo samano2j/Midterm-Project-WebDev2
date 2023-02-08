@@ -90,6 +90,19 @@ main nav .nav-link {
   color: black;
 }
 
+.displayView {
+  background-color: #ffce00;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+.displayView button {
+  padding: 20px;
+  width: 40%;
+}
+
 .gallery {
   background-color: black;
   display: flex;
@@ -97,24 +110,24 @@ main nav .nav-link {
   justify-content: center;
   align-items: center;
 }
-.gallery .figure {
-  padding: 10px;
-  width: 80%;
-}
 .gallery .figure ul {
   list-style: none;
   text-decoration: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
-  padding: 30px;
+  justify-content: center;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 20px;
 }
 .gallery .figure ul li {
   position: relative;
   height: 350px;
   cursor: pointer;
-  margin-top: 20px;
   flex-grow: 1;
+  margin-top: 20px;
 }
 .gallery .figure ul li img {
   max-height: 100%;

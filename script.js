@@ -235,4 +235,17 @@ window.onload = function(){
         prevScrollpos = currentScrollPos;
     })
 
+    //Switch Gallery View
+    $('#gridView').click(function() {
+        $('#listImg').css(
+            {"display":"grid"}
+        )
+    })
+
+    $('#flexView').click(function() {
+        $('#listImg').css(
+            {"display":"flex"}
+        )
+    })
+
 };

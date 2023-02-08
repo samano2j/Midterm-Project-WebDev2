@@ -68,6 +68,20 @@ main {
     }
 }
 
+.displayView {
+    background-color: #ffce00;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+
+    button {
+        padding: 20px;
+        width: 40%;
+    }
+}
+
 .gallery {
     background-color: black;
     display: flex;
@@ -76,8 +90,6 @@ main {
     align-items: center;
 
     .figure {
-        padding: 10px;
-        width: 80%;
         
         ul {
             list-style: none;
@@ -85,15 +97,20 @@ main {
 
             display: flex;
             flex-wrap: wrap;
-            gap: 5px;
-            padding: 30px;
+            justify-content: center;
+            align-items: center;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            padding: 20px;
 
             li {
                 position: relative;
                 height: 350px;
                 cursor: pointer;
-                margin-top: 20px;
                 flex-grow: 1;
+                margin-top: 20px;
                 
                 img {
                     max-height: 100%;

@@ -194,8 +194,15 @@ window.onload = function(){
             $('#subtotal').text(`$${subTotal}`)
 
             itemsCart -= parseInt(quantity.replace(/\D/g, ''))
-            $('#cartNav').text(`(${itemsCart})`)
-            $('#cartOut').text(`(${itemsCart})`)
+
+            if(itemsCart == 0) {
+                $('#cartNav').text("")
+                $('#cartOut').text("")
+            }
+            else {
+                $('#cartNav').text(`(${itemsCart})`)
+                $('#cartOut').text(`(${itemsCart})`)
+            }
             $(e.target).parent().remove()
         }
     })
@@ -206,8 +213,8 @@ window.onload = function(){
         subTotal = 0
         itemsCart = 0
         $('#subtotal').text(`$${subTotal}`)
-        $('#cartNav').text(`(${itemsCart})`)
-        $('#cartOut').text(`(${itemsCart})`)
+        $('#cartNav').text("")
+        $('#cartOut').text("")
     })
 
     //Switch Hero Image

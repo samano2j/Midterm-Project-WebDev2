@@ -25,6 +25,7 @@ body {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   overflow-x: hidden;
+  position: relative;
 }
 
 h3 {
@@ -32,7 +33,6 @@ h3 {
 }
 
 main {
-  height: 80vh;
   background-color: rgb(0, 0, 0);
   display: flex;
   flex-direction: column;
@@ -55,9 +55,13 @@ main .headline {
   gap: 20px;
   padding: 20px;
   margin-top: 10vh;
+  display: none;
 }
 main .headline #bg1 {
   color: #ffce00;
+}
+main .headline .bi-arrow-right-circle-fill, main .headline .bi-arrow-left-circle-fill {
+  display: none;
 }
 main nav {
   position: fixed;
@@ -90,19 +94,6 @@ main nav .nav-link {
   color: black;
 }
 
-.displayView {
-  background-color: #ffce00;
-  height: 15vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 100px;
-}
-.displayView button {
-  padding: 20px;
-  width: 40%;
-}
-
 .gallery {
   background-color: black;
   display: flex;
@@ -117,10 +108,8 @@ main nav .nav-link {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
-  padding: 20px;
+  padding: 20px 30px;
 }
 .gallery .figure ul li {
   position: relative;
@@ -322,6 +311,60 @@ footer .copyright img {
   width: 15px;
 }
 
+.headline-slider {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  padding: 10px;
+  padding-top: 13vh;
+}
+
+.bg-viewer {
+  height: 70vh;
+  width: 350%;
+  display: flex;
+  gap: 30px;
+}
+
+.bg-item {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  left: 37.7%;
+  transition: left 0.3s;
+}
+
+#g1 {
+  background-image: url(/images/background/bg1.png);
+}
+
+#g2 {
+  background-image: url(/images/background/bg2.png);
+}
+
+#g3 {
+  background-image: url(/images/background/bg3.png);
+}
+
+#g4 {
+  background-image: url(/images/background/bg4.png);
+}
+
+.circle {
+  padding: 5px 10px;
+}
+.circle i {
+  padding: 0 10px;
+}
+.circle #c1 {
+  color: #ffce00;
+}
+
 button {
   font-weight: 700;
   background: linear-gradient(to right, rgb(208, 92, 9), orange);
@@ -366,6 +409,16 @@ i:hover {
   }
   main .headline {
     width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+  }
+  main .headline .bi-arrow-right-circle-fill, main .headline .bi-arrow-left-circle-fill {
+    display: block;
+    font-size: 2.5rem;
+  }
+  main .headline i {
+    display: none;
   }
   main nav {
     padding: 0 10px;
@@ -380,15 +433,11 @@ i:hover {
   main nav .nav-link {
     font-size: 1.5rem;
   }
-  .displayView {
-    padding: 10px;
-    gap: 10px;
-  }
-  .displayView button {
-    padding: 10px;
-    width: 100%;
+  .headline-slider {
+    display: none;
   }
   .gallery .figure ul {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
   .gallery .figure ul li {

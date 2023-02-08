@@ -1,6 +1,5 @@
 
 main {
-    height: 80vh;
     background-color: rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
@@ -25,8 +24,14 @@ main {
         padding: 20px;
         margin-top:10vh;
 
+        display: none;
+
         #bg1 {
             color: #ffce00;
+        }
+
+        .bi-arrow-right-circle-fill, .bi-arrow-left-circle-fill {
+            display: none;
         }
 
     }
@@ -68,20 +73,6 @@ main {
     }
 }
 
-.displayView {
-    background-color: #ffce00;
-    height: 15vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 100px;
-
-    button {
-        padding: 20px;
-        width: 40%;
-    }
-}
-
 .gallery {
     background-color: black;
     display: flex;
@@ -99,11 +90,9 @@ main {
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
             gap: 10px;
-            padding: 20px;
+            padding: 20px 30px;
+
 
             li {
                 position: relative;
@@ -337,4 +326,63 @@ footer {
         }
     }
 
+}
+
+.headline-slider {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    padding: 10px;
+    padding-top:13vh;
+
+}
+
+.bg-viewer {
+    height: 70vh;
+    width: 350%;
+    display: flex;
+    gap: 30px;    
+}
+
+.bg-item {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+    left: 37.7%;
+    transition: left 0.3s;
+
+}
+
+#g1 {
+    background-image: url(/images/background/bg1.png);
+}
+
+#g2 {
+    background-image: url(/images/background/bg2.png);
+}
+
+#g3 {
+    background-image: url(/images/background/bg3.png);
+}
+
+#g4 {
+    background-image: url(/images/background/bg4.png);
+}
+
+.circle {
+    padding: 5px 10px;
+
+    i {
+        padding: 0 10px;
+    }
+
+    #c1 {
+        color: #ffce00;
+    }
 }

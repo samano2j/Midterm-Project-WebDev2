@@ -217,33 +217,10 @@ window.onload = function(){
         $('#cartOut').text("")
     })
 
-    //Switch Hero Image
-    $('#bg1').click(function(e) {
-        $('.headline').css({"background-image":"url(/images/background/bg1.png)"})
-        $('.bi-circle-fill').css({"color":"white"})
-        $('#bg1').css({"color":"#ffce00"})
-    })
+    //Auto Switch Image
+    let autoSwitch = setInterval(switchImg, 5000);
 
-    $('#bg2').click(function(e) {
-        $('.headline').css({"background-image":"url(/images/background/bg2.png)"})
-        $('.bi-circle-fill').css({"color":"white"})
-        $('#bg1').css({"color":"white"})
-        $('#bg2').css({"color":"#ffce00"})
-    })
-
-    $('#bg3').click(function(e) {
-        $('.headline').css({"background-image":"url(/images/background/bg3.png)"})
-        $('.bi-circle-fill').css({"color":"white"})
-        $('#bg3').css({"color":"#ffce00"})
-    })
-
-    $('#bg4').click(function(e) {
-        $('.headline').css({"background-image":"url(/images/background/bg4.png)"})
-        $('.bi-circle-fill').css({"color":"white"})
-        $('#bg4').css({"color":"#ffce00"})
-    })
-
-    setInterval(function () {
+    function switchImg() {
         let currBG = $('.headline').css("background-image")
         let numBG = parseInt(currBG.replace(/\D/g, '').at(-1))
 
@@ -258,7 +235,80 @@ window.onload = function(){
         $('.bi-circle-fill').css({"color":"white"})
         $(`#bg${numBG}`).css({"color":"#ffce00"})
 
-    }, 3000);
+    }
+
+    //Switch Hero Image
+    $('#bg1').click(function(e) {
+        $('.headline').css({"background-image":"url(/images/background/bg1.png)"})
+        $('.bi-circle-fill').css({"color":"white"})
+        $('#bg1').css({"color":"#ffce00"})
+
+        clearInterval(autoSwitch);
+        autoSwitch = setInterval(switchImg, 5000);
+    })
+
+    $('#bg2').click(function(e) {
+        $('.headline').css({"background-image":"url(/images/background/bg2.png)"})
+        $('.bi-circle-fill').css({"color":"white"})
+        $('#bg1').css({"color":"white"})
+        $('#bg2').css({"color":"#ffce00"})
+
+        clearInterval(autoSwitch);
+        autoSwitch = setInterval(switchImg, 5000);
+    })
+
+    $('#bg3').click(function(e) {
+        $('.headline').css({"background-image":"url(/images/background/bg3.png)"})
+        $('.bi-circle-fill').css({"color":"white"})
+        $('#bg3').css({"color":"#ffce00"})
+
+        clearInterval(autoSwitch);
+        autoSwitch = setInterval(switchImg, 5000);
+    })
+
+    $('#bg4').click(function(e) {
+        $('.headline').css({"background-image":"url(/images/background/bg4.png)"})
+        $('.bi-circle-fill').css({"color":"white"})
+        $('#bg4').css({"color":"#ffce00"})
+
+        clearInterval(autoSwitch);
+        autoSwitch = setInterval(switchImg, 5000);
+    })
+
+    //Switch Hero Image - Mobile View
+    $('#leftBtn').click(function(e) {
+        let currBG = $('.headline').css("background-image")
+        let numBG = parseInt(currBG.replace(/\D/g, '').at(-1))
+
+        if(numBG == 1) {
+            numBG = 4
+        }
+        else {
+            numBG--
+        }
+
+        clearInterval(autoSwitch);
+        autoSwitch = setInterval(switchImg, 5000);
+
+        $('.headline').css({"background-image":`url(/images/background/bg${numBG}.png)`})
+    })
+
+    $('#rightBtn').click(function(e) {
+        let currBG = $('.headline').css("background-image")
+        let numBG = parseInt(currBG.replace(/\D/g, '').at(-1))
+
+        if(numBG == 4) {
+            numBG = 1
+        }
+        else {
+            numBG++
+        }
+
+        clearInterval(autoSwitch);
+        autoSwitch = setInterval(switchImg, 5000);
+
+        $('.headline').css({"background-image":`url(/images/background/bg${numBG}.png)`})
+    })
 
     //Show/Hide Navbar when Scrolling
     let prevScrollpos = window.pageYOffset;
@@ -274,17 +324,73 @@ window.onload = function(){
         prevScrollpos = currentScrollPos;
     })
 
-    //Switch Gallery View
-    $('#gridView').click(function() {
-        $('#listImg').css(
-            {"display":"grid"}
-        )
+    //Auto Switch Slider
+    let autoSlider = setInterval(slideImg, 5000);
+
+    function slideImg() {
+        let currBG = $('.bg-item').css("left")
+        let leftBG = currBG.slice(0,-2);
+        console.log(leftBG)
+
+        if (leftBG > 1000) {
+            leftBG = 12.5
+            $('.bi-circle-fill').css({"color":"white"})
+            $('#c2').css({"color":"#ffce00"})
+        }
+        else if (leftBG < 1000 && leftBG > 0) {
+            leftBG = -12.5
+            $('.bi-circle-fill').css({"color":"white"})
+            $('#c3').css({"color":"#ffce00"})
+        }
+        else if (leftBG > -1000 && leftBG < 0) {
+            leftBG = -37.5
+            $('.bi-circle-fill').css({"color":"white"})
+            $('#c4').css({"color":"#ffce00"})
+        }
+        else if (leftBG < -1000 && leftBG < 0) {
+            leftBG = 37.7
+            $('.bi-circle-fill').css({"color":"white"})
+            $('#c1').css({"color":"#ffce00"})
+        }
+
+        $('.bg-item').css({"left":`${leftBG}%`})
+    }
+
+    //Hero Image Slider
+    $('#c1').click(function(e) {
+        $(".bg-item").css({"left":"37.7%"})
+        $('.bi-circle-fill').css({"color":"white"})
+        $('#c1').css({"color":"#ffce00"})
+
+        clearInterval(autoSwitch);
+        autoSwitch = setInterval(switchImg, 5000);
+    })
+    
+    $('#c2').click(function(e) {
+        $(".bg-item").css({"left":"12.5%"})
+        $('.bi-circle-fill').css({"color":"white"})
+        $('#c2').css({"color":"#ffce00"})
+
+        clearInterval(autoSwitch);
+        autoSwitch = setInterval(switchImg, 5000);
     })
 
-    $('#flexView').click(function() {
-        $('#listImg').css(
-            {"display":"flex"}
-        )
+    $('#c3').click(function(e) {
+        $(".bg-item").css({"left":"-12.5%"})
+        $('.bi-circle-fill').css({"color":"white"})
+        $('#c3').css({"color":"#ffce00"})
+
+        clearInterval(autoSwitch);
+        autoSwitch = setInterval(switchImg, 5000);
+    })
+
+    $('#c4').click(function(e) {
+        $(".bg-item").css({"left":"-37.7%"})
+        $('.bi-circle-fill').css({"color":"white"})
+        $('#c4').css({"color":"#ffce00"})
+
+        clearInterval(autoSwitch);
+        autoSwitch = setInterval(switchImg, 5000);
     })
 
 };

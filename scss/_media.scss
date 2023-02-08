@@ -62,7 +62,9 @@
     .modal {
         display: flex;
         flex-direction: column;
+        gap: 20px;
         font-size: 1.5em;
+        padding: 0 30px;
 
         img {
             height: 250px;

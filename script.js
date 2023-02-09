@@ -217,63 +217,55 @@ window.onload = function(){
         $('#cartOut').text("")
     })
 
-    //Auto Switch Image
+    //Auto Switch Timer
     let autoSwitch = setInterval(switchImg, 5000);
 
     function switchImg() {
-        let currBG = $('.headline').css("background-image")
-        let numBG = parseInt(currBG.replace(/\D/g, '').at(-1))
+        //Auto Switch Image - Mobile View
+        if($(window).width() <= 576) {
+            let currBG = $('.headline').css("background-image")
+                let numBG = parseInt(currBG.replace(/\D/g, '').at(-1))
 
-        if(numBG == 4) {
-            numBG = 1
+                if(numBG == 4) {
+                    numBG = 1
+                }
+                else {
+                    numBG++
+                }
+
+                $('.headline').css({"background-image":`url(/images/background/bg${numBG}.png)`})
+                $('.bi-circle-fill').css({"color":"white"})
+                $(`#bg${numBG}`).css({"color":"#ffce00"})
         }
         else {
-            numBG++
+            //Auto Switch Slider
+            let currBG = $('.bg-item').css("left")
+            let leftBG = currBG.slice(0,-2);
+
+            if (leftBG > 1000) {
+                leftBG = 12.5
+                $('.bi-circle-fill').css({"color":"white"})
+                $('#c2').css({"color":"#ffce00"})
+            }
+            else if (leftBG < 1000 && leftBG > 0) {
+                leftBG = -12.5
+                $('.bi-circle-fill').css({"color":"white"})
+                $('#c3').css({"color":"#ffce00"})
+            }
+            else if (leftBG > -1000 && leftBG < 0) {
+                leftBG = -37.5
+                $('.bi-circle-fill').css({"color":"white"})
+                $('#c4').css({"color":"#ffce00"})
+            }
+            else if (leftBG < -1000 && leftBG < 0) {
+                leftBG = 37.7
+                $('.bi-circle-fill').css({"color":"white"})
+                $('#c1').css({"color":"#ffce00"})
+            }
+
+            $('.bg-item').css({"left":`${leftBG}%`})
         }
-
-        $('.headline').css({"background-image":`url(/images/background/bg${numBG}.png)`})
-        $('.bi-circle-fill').css({"color":"white"})
-        $(`#bg${numBG}`).css({"color":"#ffce00"})
-
     }
-
-    //Switch Hero Image
-    $('#bg1').click(function(e) {
-        $('.headline').css({"background-image":"url(/images/background/bg1.png)"})
-        $('.bi-circle-fill').css({"color":"white"})
-        $('#bg1').css({"color":"#ffce00"})
-
-        clearInterval(autoSwitch);
-        autoSwitch = setInterval(switchImg, 5000);
-    })
-
-    $('#bg2').click(function(e) {
-        $('.headline').css({"background-image":"url(/images/background/bg2.png)"})
-        $('.bi-circle-fill').css({"color":"white"})
-        $('#bg1').css({"color":"white"})
-        $('#bg2').css({"color":"#ffce00"})
-
-        clearInterval(autoSwitch);
-        autoSwitch = setInterval(switchImg, 5000);
-    })
-
-    $('#bg3').click(function(e) {
-        $('.headline').css({"background-image":"url(/images/background/bg3.png)"})
-        $('.bi-circle-fill').css({"color":"white"})
-        $('#bg3').css({"color":"#ffce00"})
-
-        clearInterval(autoSwitch);
-        autoSwitch = setInterval(switchImg, 5000);
-    })
-
-    $('#bg4').click(function(e) {
-        $('.headline').css({"background-image":"url(/images/background/bg4.png)"})
-        $('.bi-circle-fill').css({"color":"white"})
-        $('#bg4').css({"color":"#ffce00"})
-
-        clearInterval(autoSwitch);
-        autoSwitch = setInterval(switchImg, 5000);
-    })
 
     //Switch Hero Image - Mobile View
     $('#leftBtn').click(function(e) {
@@ -292,7 +284,7 @@ window.onload = function(){
 
         $('.headline').css({"background-image":`url(/images/background/bg${numBG}.png)`})
     })
-
+    
     $('#rightBtn').click(function(e) {
         let currBG = $('.headline').css("background-image")
         let numBG = parseInt(currBG.replace(/\D/g, '').at(-1))
@@ -324,37 +316,6 @@ window.onload = function(){
         prevScrollpos = currentScrollPos;
     })
 
-    //Auto Switch Slider
-    let autoSlider = setInterval(slideImg, 5000);
-
-    function slideImg() {
-        let currBG = $('.bg-item').css("left")
-        let leftBG = currBG.slice(0,-2);
-
-        if (leftBG > 1000) {
-            leftBG = 12.5
-            $('.bi-circle-fill').css({"color":"white"})
-            $('#c2').css({"color":"#ffce00"})
-        }
-        else if (leftBG < 1000 && leftBG > 0) {
-            leftBG = -12.5
-            $('.bi-circle-fill').css({"color":"white"})
-            $('#c3').css({"color":"#ffce00"})
-        }
-        else if (leftBG > -1000 && leftBG < 0) {
-            leftBG = -37.5
-            $('.bi-circle-fill').css({"color":"white"})
-            $('#c4').css({"color":"#ffce00"})
-        }
-        else if (leftBG < -1000 && leftBG < 0) {
-            leftBG = 37.7
-            $('.bi-circle-fill').css({"color":"white"})
-            $('#c1').css({"color":"#ffce00"})
-        }
-
-        $('.bg-item').css({"left":`${leftBG}%`})
-    }
-
     //Hero Image Slider
     $('#c1').click(function(e) {
         $(".bg-item").css({"left":"37.7%"})
@@ -363,6 +324,7 @@ window.onload = function(){
 
         clearInterval(autoSwitch);
         autoSwitch = setInterval(switchImg, 5000);
+        
     })
     
     $('#c2').click(function(e) {
@@ -392,4 +354,65 @@ window.onload = function(){
         autoSwitch = setInterval(switchImg, 5000);
     })
 
+    //Hover on Circle
+    $('#c1').hover(
+        function(e) {
+            $('#c1').css({"color":"#ffce00"})
+        }, function(e) {
+            let currBG = $('.bg-item').css("left")
+            let leftBG = currBG.slice(0,-2);
+
+            if (leftBG > 1000) {
+                $('#c1').css({"color":"#ffce00"})
+            } else {
+                $('#c1').css({"color":"white"})
+            }
+        }
+    )
+
+    $('#c2').hover(
+        function(e) {
+            $('#c2').css({"color":"#ffce00"})
+        }, function(e) {
+            let currBG = $('.bg-item').css("left")
+            let leftBG = currBG.slice(0,-2);
+
+            if (leftBG < 1000 && leftBG > 0) {
+                $('#c2').css({"color":"#ffce00"})
+            } else {
+                $('#c2').css({"color":"white"})
+            }
+        }
+    )
+
+    $('#c3').hover(
+        function(e) {
+            $('#c3').css({"color":"#ffce00"})
+        }, function(e) {
+            let currBG = $('.bg-item').css("left")
+            let leftBG = currBG.slice(0,-2);
+
+            if (leftBG > -1000 && leftBG < 0) {
+                $('#c3').css({"color":"#ffce00"})
+            } else {
+                $('#c3').css({"color":"white"})
+            }
+        }
+    )
+
+    $('#c4').hover(
+        function(e) {
+            $('#c4').css({"color":"#ffce00"})
+        }, function(e) {
+            let currBG = $('.bg-item').css("left")
+            let leftBG = currBG.slice(0,-2);
+
+            if (leftBG < -1000 && leftBG < 0) {
+                $('#c4').css({"color":"#ffce00"})
+            } else {
+                $('#c4').css({"color":"white"})
+            }
+        }
+    )
+   
 };

@@ -330,7 +330,6 @@ window.onload = function(){
     function slideImg() {
         let currBG = $('.bg-item').css("left")
         let leftBG = currBG.slice(0,-2);
-        console.log(leftBG)
 
         if (leftBG > 1000) {
             leftBG = 12.5
